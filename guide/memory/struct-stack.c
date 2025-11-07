@@ -3,9 +3,9 @@
 #include <string.h>
 
 struct Class {
-	char course[100];
-	char id[100];
-	char prof[100];
+	char course[50];
+	char id[50];
+	char prof[50];
 };
 
 struct Class make_course(const char *course, const char *id, const char *prof) {

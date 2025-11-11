@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int strlength(char *ptr) {
-	int i;
-	int lens;
+	int i = 0;
+	int lens = 0;
 	while(*(ptr + i) != '\0') {
 		i++;
 		lens ++;

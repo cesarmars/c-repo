@@ -4,7 +4,8 @@
 
 int main() {
 	/* creates space for the word "hello" */
-	char *str = malloc(6 * sizeof(*str)); // or malloc(6 * sizeof(char));
+	int cap = 6;
+	char *str = malloc(cap * sizeof(*str)); // or malloc(6 * sizeof(char));
 	*str = 'h';
 	*(str + 1) = 'e';
 	*(str + 2) = 'l';
@@ -12,21 +13,20 @@ int main() {
 	*(str + 4) = 'o';
 	*(str + 5) = '\0';
 	
-	/* gets the length of the word "hello" should be 5, excludes the null terminator strlen is a runtime function*/
+	/* gets the number of char's of the word "hello" before the null terminator, should be 5, strlen is a runtime function*/
 	int len = strlen(str);
 	printf("strlen: %d\n", len);
 
-	/* true length of the word "hello" should be 6, includes the null terminator */
-	int t_len = 6 * sizeof(*str);   
-	printf("including null terminator: %d\n", t_len);
+	/* true number of char's in the word "hello" is 6 includes the null terminator */
+	int t_len = cap;   
 
 	/* prints the string from the heap */
 	printf("%s\n", str);
 
 	/* sizeof str should be a pointer size because malloc returns a pointer */
-	printf("sizeof(str): %lu bytes\n", sizeof(str));
+	printf("sizeof(str): %zu bytes\n", sizeof(str));
 
-	/* iterate through the memory of each char of the str array include null terminator, grows upwards*/	
+	/* print each elements address, grows upwards */	
 	for(int i = 0; i < t_len; i ++)
 		printf("%p\n", str + i);
 		

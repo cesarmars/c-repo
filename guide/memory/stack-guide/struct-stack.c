@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* struct Class a new type, not a function, a declaration */
 struct Class {
 	char course[50];
 	char id[50];
 	char prof[50];
 };
 
+/* function that returns an initialzed type struct Class */
 struct Class make_course(const char *course, const char *id, const char *prof) {
 	struct Class one;
 	strcpy(one.course, course);

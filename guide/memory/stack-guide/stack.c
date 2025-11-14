@@ -8,6 +8,7 @@ void c() {
 	printf("%p\n", &z);
 
     /* When c() returns, c()'s stack frame will be popped (freed) */
+	printf("done, last-in and first-out is c()\n");
 }
 
 void b() {
@@ -43,3 +44,21 @@ int main() {
 	/* when main() returns, the program ends and its frame is freed, aka deallocation */
 	return 0;
 }
+
+/*
+   last-in, first-out diagram
+
+   allocation order (function call) 
+   main() stack frame
+   a() stack frame
+   b() stack frame
+   c() stack frame <- last-in because no more function call
+
+   deallacation order (return)
+   c() freed <- first-out because it is where the function call ended
+   b() freed
+   a() freed
+   main() freed
+
+*/
+
